@@ -1,0 +1,61 @@
+.filterWrapper {
+  width: 240px;
+  min-height: 382px;
+  border: 2px solid #364C84;
+  border-radius: 20px;
+  padding: 30px 20px;
+}
+
+.filterHeader {
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.showButton {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  color: #FFFFFF;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 17px;
+  text-decoration: underline;
+}
+
+.filterTitle {
+  display: block;
+  color: #FFFFFF;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  margin: 14px 0 10px 0;
+}
+
+.filterName {
+  width: 100%;
+  height: 36px;
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+}
+
+.checkboxes {
+  overflow: hidden;
+  height: 140px;
+}
+
+.checkboxes_show {
+  height: 275px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  span {
+    color: #B3B3B3;
+    margin-left: 10px;
+  }
+}
