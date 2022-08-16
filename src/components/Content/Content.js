@@ -74,7 +74,8 @@ const Content = () => {
               poster={film.poster} 
               name={film.name} 
               year={film.year} 
-              genres={film.genres[0]} 
+              genres={film.genres[0]}
+              id={film.id} 
             />
           ))}
         </ul> : <h2 className={styles.errorTitle}>Ничего не найдено</h2> }
