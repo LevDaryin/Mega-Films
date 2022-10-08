@@ -15,7 +15,11 @@ const Header = () => {
           </div>
         </Link>
 
-        <img className={styles.accountIcon} src="/assets/accountIcon.svg" alt="Account-icon" />
+        <img
+          className={styles.accountIcon}
+          src="/assets/accountIcon.svg"
+          alt="Account-icon"
+        />
       </div>
 
       <div className={styles.divider} />

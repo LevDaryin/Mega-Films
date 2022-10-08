@@ -4,10 +4,9 @@ import Filter from "../../components/Filter/Filter";
 
 import movies from "../../assets/films"; //simulation of getting data from the server
 
-import styles from "./Content.module.scss"
+import styles from "./Content.module.scss";
 
 const Content = () => {
-
   const [films, setFilms] = useState(movies);
   const [name, setName] = useState("");
   const [genres, setGenres] = useState([]);
@@ -26,7 +25,7 @@ const Content = () => {
 
   const filterName = (film) => {
     return film.name.toLowerCase().includes(name.toLowerCase());
-  }
+  };
 
   const filterGenre = (film) => {
     if (genres.length !== 0) {
@@ -43,7 +42,7 @@ const Content = () => {
     } else {
       return true;
     }
-  }; 
+  };
 
   const addName = (name) => {
     setName(name);
@@ -51,36 +50,41 @@ const Content = () => {
 
   const addGenres = (genre) => {
     if (genres.includes(genre)) {
-      setGenres(genres.filter((item) => {return item !== genre }));
+      setGenres(
+        genres.filter((item) => {
+          return item !== genre;
+        })
+      );
     } else {
       setGenres([...genres, genre]);
     }
   };
 
-  let filteredFilms = films
-  .filter(filterName)
-  .filter(filterGenre);
+  let filteredFilms = films.filter(filterName).filter(filterGenre);
 
   return (
     <div className={styles.contentWrapper}>
       <Filter addName={addName} addGenres={addGenres} />
       <div className={styles.cardsWrapper}>
-        { (filteredFilms.length > 0) ? <ul className={styles.cardList}>
-          {filteredFilms
-          .map((film) => (
-            <Card 
-              key={film.id}
-              kinopoiskRating={film.kinopoiskRating} 
-              poster={film.poster} 
-              name={film.name} 
-              year={film.year} 
-              genres={film.genres[0]}
-              id={film.id} 
-            />
-          ))}
-        </ul> : <h2 className={styles.errorTitle}>Ничего не найдено</h2> }
+        {filteredFilms.length > 0 ? (
+          <ul className={styles.cardList}>
+            {filteredFilms.map((film) => (
+              <Card
+                key={film.id}
+                kinopoiskRating={film.kinopoiskRating}
+                poster={film.poster}
+                name={film.name}
+                year={film.year}
+                genres={film.genres[0]}
+                id={film.id}
+              />
+            ))}
+          </ul>
+        ) : (
+          <h2 className={styles.errorTitle}>Ничего не найдено</h2>
+        )}
       </div>
-    </div>        
+    </div>
   );
 };
 

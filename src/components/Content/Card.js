@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import styles from "./Card.module.scss";
 
 const Card = (props) => {
-
   // Временный вариант
   let background = "";
 
@@ -18,7 +17,10 @@ const Card = (props) => {
   return (
     <Link to={`/movie/${props.id}`}>
       <li className={styles.card}>
-        <div style={{background: background,}} className={styles.grade}> <span>{props.kinopoiskRating}</span> </div>
+        <div style={{ background: background }} className={styles.grade}>
+          {" "}
+          <span>{props.kinopoiskRating}</span>{" "}
+        </div>
         <img width={114} height={170} src={props.poster} alt="Poster" />
         <b>{props.name}</b>
         <p>{`${props.year}, ${props.genres}`}</p>

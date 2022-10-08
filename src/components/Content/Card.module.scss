@@ -33,6 +33,7 @@
     font-size: 12px;
     line-height: 15px;
     margin-top: 6px;
+    color: #000000;
   }
   p {
     color: #6B6A6A;
@@ -50,4 +51,8 @@
 .cardDescription {
   display: flex;
   align-items: center;
+}
+
+a {
+  text-decoration: none;
 }

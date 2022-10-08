@@ -8,7 +8,9 @@ import styles from "./Index.module.scss";
 
 const Index = () => {
   const { id } = useParams();
-  let film = movies.filter((movie) => {return movie.id === id}); //simulation of getting data from the server
+  let film = movies.filter((movie) => {
+    return movie.id === id;
+  }); //simulation of getting data from the server
   const [movie, setMovie] = useState(film);
 
   /* console.log(film);
@@ -28,11 +30,11 @@ const Index = () => {
 
   let genres = movie[0].genres.reduce((genres, genre) => {
     return genres + ", " + genre;
-  })
+  });
 
   return (
     <div className={styles.background}>
-      <Header /> 
+      <Header />
       <div className={styles.content}>
         <img src={movie[0].posterFull} alt="Movie poster" />
         <div className="description">
@@ -40,13 +42,37 @@ const Index = () => {
           <div className={styles.block}>
             <h3>О фильме:</h3>
             <ul>
-              <li> Год: <span> {movie[0].year} </span> </li>
-              <li> Страна: <span> {movie[0].country} </span> </li>
-              <li> Жанры: <span> {genres} </span> </li>
-              <li> Рейтинг Кинопоиска: <span> {movie[0].kinopoiskRating} </span> </li>
-              <li> Рейтинг Imdb: <span> {movie[0].ImdbRating} </span> </li>
-              <li> Возраст: <span> {movie[0].age} </span> </li>
-              <li> Рейтинг MPAA: <span> {movie[0].ageMPAA} </span> </li>
+              <li>
+                {" "}
+                Год: <span> {movie[0].year} </span>{" "}
+              </li>
+              <li>
+                {" "}
+                Страна: <span> {movie[0].country} </span>{" "}
+              </li>
+              <li>
+                {" "}
+                Жанры: <span> {genres} </span>{" "}
+              </li>
+              <li>
+                {" "}
+                Рейтинг Кинопоиска: <span>
+                  {" "}
+                  {movie[0].kinopoiskRating}{" "}
+                </span>{" "}
+              </li>
+              <li>
+                {" "}
+                Рейтинг Imdb: <span> {movie[0].ImdbRating} </span>{" "}
+              </li>
+              <li>
+                {" "}
+                Возраст: <span> {movie[0].age} </span>{" "}
+              </li>
+              <li>
+                {" "}
+                Рейтинг MPAA: <span> {movie[0].ageMPAA} </span>{" "}
+              </li>
             </ul>
           </div>
           <div className={styles.block}>
@@ -56,7 +82,7 @@ const Index = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default Index;

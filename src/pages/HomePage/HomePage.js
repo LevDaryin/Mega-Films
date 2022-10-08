@@ -6,7 +6,7 @@ import styles from "./HomePage.module.scss";
 const HomePage = (props) => {
   return (
     <div className={styles.background}>
-      <Header /> 
+      <Header />
       <Content />
     </div>
   );
