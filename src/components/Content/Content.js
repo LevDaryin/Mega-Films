@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
-import Card from "./Card";
 import Filter from "../../components/Filter/Filter";
 
 import movies from "../../assets/films"; //simulation of getting data from the server
 
 import styles from "./Content.module.scss";
+import PaginateItems from "./PaginateItems";
 
 const Content = () => {
   const [films, setFilms] = useState(movies);
@@ -66,23 +66,7 @@ const Content = () => {
     <div className={styles.contentWrapper}>
       <Filter addName={addName} addGenres={addGenres} />
       <div className={styles.cardsWrapper}>
-        {filteredFilms.length > 0 ? (
-          <ul className={styles.cardList}>
-            {filteredFilms.map((film) => (
-              <Card
-                key={film.id}
-                kinopoiskRating={film.kinopoiskRating}
-                poster={film.poster}
-                name={film.name}
-                year={film.year}
-                genres={film.genres[0]}
-                id={film.id}
-              />
-            ))}
-          </ul>
-        ) : (
-          <h2 className={styles.errorTitle}>Ничего не найдено</h2>
-        )}
+        <PaginateItems itemsPerPage={12} content={filteredFilms} filters={{name: name, genres: genres}} />
       </div>
     </div>
   );

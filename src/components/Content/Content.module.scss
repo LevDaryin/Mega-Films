@@ -11,15 +11,11 @@
   padding: 30px 30px 50px 30px;
   border: 2px solid #364C84;
   border-radius: 20px;
-}
-
-.cardList {
   display: grid;
   grid-template-columns: repeat(4, 150px);
-  grid-template-rows: repeat(3, 242px);
+  grid-template-rows: repeat(3, 242px) 40px;
   column-gap: 29px;
   row-gap: 30px;
-  padding: 0;
   list-style-type: none;
 }
 
@@ -37,15 +33,7 @@
   }
 }
 
-.errorTitle {
-  color: #919191;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 48px;
-  text-align: center;
-  margin-top: 366px;
-  margin-bottom: 372px;
-}
+
 
 
 

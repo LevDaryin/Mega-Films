@@ -1,0 +1,58 @@
+.listContainer {
+  grid-row: 4;
+  display: flex;
+  list-style-type: none;
+  margin-top: 20px;
+}
+
+.breakList {
+  
+}
+
+.breakLink {
+  padding: 10px;
+  border: 2px solid #364C84;
+  border-radius: 8px;
+  margin-right: 10px;
+  color: #FFFFFF;
+}
+
+.page {
+
+}
+
+.pageLink {
+  padding: 10px;
+  border: 2px solid #364C84;
+  border-radius: 8px;
+  margin-right: 10px;
+  color: #FFFFFF;
+}
+
+.activePage {
+  
+}
+
+.activeLink {
+  border: 2px solid #5f83db;
+}
+
+.previousButton, .nextButton {
+  
+}
+
+.nextLink, .previousLink {
+  padding: 10px;
+  border: 2px solid #364C84;
+  border-radius: 8px;
+  margin-right: 10px;
+  color: #FFFFFF;
+}
+
+.errorTitle {
+  text-align: center;
+  color: #FFFFFF;
+  font-size: 36px;
+  grid-row: 2;
+  grid-column: 2 / 4;
+}
