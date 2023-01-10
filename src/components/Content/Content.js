@@ -10,6 +10,10 @@ const Content = () => {
   const [films, setFilms] = useState(movies);
   const [name, setName] = useState("");
   const [genres, setGenres] = useState([]);
+  const [years, setYears] = useState({
+    leftEdge: 1950,
+    rightEdge: new Date().getFullYear()
+  });
 
   /* useEffect(() => {
     fetch(`https://run.mocky.io/v3/3d83f140-97ae-4395-945c-b7436c15fd9c`, {
@@ -44,6 +48,10 @@ const Content = () => {
     }
   };
 
+  const filterYears = (film) => {
+    return (film.year >= years.leftEdge && film.year <= years.rightEdge)
+  };
+
   const addName = (name) => {
     setName(name);
   };
@@ -60,11 +68,18 @@ const Content = () => {
     }
   };
 
-  let filteredFilms = films.filter(filterName).filter(filterGenre);
+  const addYears = (years) => {
+    setYears({
+      leftEdge: years[0],
+      rightEdge: years[1]
+    });
+  };
+
+  let filteredFilms = films.filter(filterName).filter(filterGenre).filter(filterYears);
 
   return (
     <div className={styles.contentWrapper}>
-      <Filter addName={addName} addGenres={addGenres} />
+      <Filter addName={addName} addGenres={addGenres} addYears={addYears} />
       <div className={styles.cardsWrapper}>
         <PaginateItems itemsPerPage={12} content={filteredFilms} filters={{name: name, genres: genres}} />
       </div>

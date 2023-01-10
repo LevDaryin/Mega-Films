@@ -2,6 +2,7 @@ import { useRef } from "react";
 
 import styles from "./Filter.module.scss";
 import Genres from "./Genres";
+import Slider from "./Slider";
 
 const Filter = (props) => {
 
@@ -26,6 +27,9 @@ const Filter = (props) => {
         ref={inputValue}
         onChange={changeValueHandler}
       />
+
+      <b className={styles.filterTitle}>По году выпуска:</b>
+      <Slider addYears={props.addYears} />
 
       <b className={styles.filterTitle}>По жанру:</b>
       <Genres onChangeGenresHandler={onChangeGenresHandler} />
