@@ -34,19 +34,19 @@ const PaginateItems = ({ itemsPerPage, content, filters }) => {
     setPageCount(Math.ceil(content.length / itemsPerPage));
   }, [itemOffset, itemsPerPage, content]);
 
-  const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % content.length;
-    setItemOffset(newOffset);
-  };
-
   useEffect(() => {
     const newOffset = 0;
     setItemOffset(newOffset);
   }, [filters]);
 
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % content.length;
+    setItemOffset(newOffset);
+  };
+
   return (
     <React.Fragment>
-      {(currentItems != null) ? (currentItems.length != 0) ? <Items currentItems={currentItems} /> : <div className={styles.errorTitle}>Ничего не найдено</div> : undefined }
+      {(currentItems != null) ? (currentItems.length !== 0) ? <Items currentItems={currentItems} /> : <div className={styles.errorTitle}>Ничего не найдено</div> : undefined }
       <ReactPaginate
         containerClassName={styles.listContainer}
         breakLabel="..."
@@ -67,7 +67,7 @@ const PaginateItems = ({ itemsPerPage, content, filters }) => {
         previousClassName={styles.previousButton}
         renderOnZeroPageCount={undefined}
         marginPagesDisplayed={1}
-        forcePage={(filters.name === "" && filters.genres.length === 0) ? undefined : 0}
+        forcePage={(filters.name === "" && filters.genres.length === 0 && filters.country.length === 0 && (filters.years.leftEdge === 1950 && filters.years.rightEdge === new Date().getFullYear())) ? undefined : 0}
       />
     </React.Fragment>
   )

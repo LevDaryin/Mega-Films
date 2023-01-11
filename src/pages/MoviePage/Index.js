@@ -1,6 +1,6 @@
-import Header from "../../components/Header/Header";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Header from "../../components/Header/Header";
 
 import movies from "../../assets/films"; //simulation of getting data from the server
 
@@ -32,6 +32,10 @@ const Index = () => {
     return genres + ", " + genre;
   });
 
+  let country = movie[0].country.reduce((country, countryItem) => {
+    return country + ", " + countryItem;
+  });
+
   return (
     <div className={styles.background}>
       <Header />
@@ -48,7 +52,7 @@ const Index = () => {
               </li>
               <li>
                 {" "}
-                Страна: <span> {movie[0].country} </span>{" "}
+                Страна: <span> {country} </span>{" "}
               </li>
               <li>
                 {" "}

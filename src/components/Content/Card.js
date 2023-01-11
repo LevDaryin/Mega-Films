@@ -18,8 +18,7 @@ const Card = (props) => {
     <Link to={`/movie/${props.id}`}>
       <li className={styles.card}>
         <div style={{ background: background }} className={styles.grade}>
-          {" "}
-          <span>{props.kinopoiskRating}</span>{" "}
+          <span>{props.kinopoiskRating}</span>
         </div>
         <img width={114} height={170} src={props.poster} alt="Poster" />
         <b>{props.name}</b>

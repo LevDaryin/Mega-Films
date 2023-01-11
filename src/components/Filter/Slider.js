@@ -11,7 +11,6 @@ const Slider = (props) => {
       min={1950}
       max={new Date().getFullYear()}
       defaultValue={[1950, new Date().getFullYear()]}
-      ariaLabel={["Lower thumb", "Upper thumb"]}
       onAfterChange={(state) => {
         props.addYears(state);
       }}

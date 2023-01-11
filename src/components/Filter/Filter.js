@@ -1,8 +1,9 @@
 import { useRef } from "react";
-
-import styles from "./Filter.module.scss";
+import Country from "./Country";
 import Genres from "./Genres";
 import Slider from "./Slider";
+
+import styles from "./Filter.module.scss";
 
 const Filter = (props) => {
 
@@ -16,9 +17,14 @@ const Filter = (props) => {
     props.addName(inputValue.current.value);
   };
 
+  const onChangeCountryHandler = (event) => {
+    props.addCountry(event.target.value);
+  };
+
   return (
     <div className={styles.filterWrapper}>
       <h2 className={styles.filterHeader}>Фильтры</h2>
+
       <b className={styles.filterTitle}>По названию:</b>
       <input
         className={styles.filterName}
@@ -33,6 +39,9 @@ const Filter = (props) => {
 
       <b className={styles.filterTitle}>По жанру:</b>
       <Genres onChangeGenresHandler={onChangeGenresHandler} />
+
+      <b className={styles.filterTitle}>По стране выпуска:</b>
+      <Country onChangeCountryHandler={onChangeCountryHandler} />
     </div>
   );
 };

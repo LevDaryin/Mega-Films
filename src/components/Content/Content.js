@@ -14,6 +14,7 @@ const Content = () => {
     leftEdge: 1950,
     rightEdge: new Date().getFullYear()
   });
+  const [country, setCountry] = useState([]);
 
   /* useEffect(() => {
     fetch(`https://run.mocky.io/v3/3d83f140-97ae-4395-945c-b7436c15fd9c`, {
@@ -49,7 +50,24 @@ const Content = () => {
   };
 
   const filterYears = (film) => {
-    return (film.year >= years.leftEdge && film.year <= years.rightEdge)
+    return (film.year >= years.leftEdge && film.year <= years.rightEdge);
+  };
+
+  const filterCountry = (film) => {
+    if (country.length !== 0) {
+      let flag = false;
+      for (let item in country) {
+        if (film.country.includes(country[item])) {
+          flag = true;
+        } else {
+          flag = false;
+          break;
+        }
+      }
+      return flag;
+    } else {
+      return true;
+    }
   };
 
   const addName = (name) => {
@@ -75,13 +93,25 @@ const Content = () => {
     });
   };
 
-  let filteredFilms = films.filter(filterName).filter(filterGenre).filter(filterYears);
+  const addCountry = (countryItem) => { 
+    if (country.includes(countryItem)) {
+      setCountry(
+        country.filter((item) => {
+          return item !== countryItem;
+        })
+      );
+    } else {
+      setCountry([...country, countryItem]);
+    }
+  }
+
+  let filteredFilms = films.filter(filterName).filter(filterGenre).filter(filterYears).filter(filterCountry);
 
   return (
     <div className={styles.contentWrapper}>
-      <Filter addName={addName} addGenres={addGenres} addYears={addYears} />
+      <Filter addName={addName} addGenres={addGenres} addYears={addYears} addCountry={addCountry} />
       <div className={styles.cardsWrapper}>
-        <PaginateItems itemsPerPage={12} content={filteredFilms} filters={{name: name, genres: genres}} />
+        <PaginateItems itemsPerPage={12} content={filteredFilms} filters={{name: name, genres: genres, years: years, country: country}} />
       </div>
     </div>
   );
